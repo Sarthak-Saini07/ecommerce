@@ -9,7 +9,7 @@
 <body>
     <header class="page-header">
       <div class="header-inner">
-        <h2 class="heading">Sarthak Store</h2>
+        <h2 class="heading">Sarthak's Store</h2>
         <!-- Cart button with badge showing item count (positioned to the right via CSS) -->
         <button id="cart-button" class="cart-btn" aria-label="View cart">
           <!-- simple cart SVG icon -->
@@ -44,6 +44,12 @@
 
     <!-- Section where product cards will be injected by JavaScript -->
     <section id="product-section"></section>
+    <!-- Pagination controls -->
+<div class="pagination" style="display:flex;justify-content:center;align-items:center;gap:12px;margin:24px 0;">
+  <button id="prevBtn" class="btn">Prev</button>
+  <span id="pageInfo"></span>
+  <button id="nextBtn" class="btn">Next</button>
+</div>
 
     <script src="./script.js"></script>
 </body>
