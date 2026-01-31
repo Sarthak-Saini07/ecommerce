@@ -1,0 +1,195 @@
+/* Page body styles: sets a vertical layout and a system font stack for consistency */
+*{
+  background-color: rgb(186, 179, 179);
+}
+body{
+    display: flex; /* use flexbox for main layout */
+    flex-direction: column; /* stack children vertically */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* fallback font stack */
+}
+
+/* Form uses flex layout to keep input and button on one line */
+form{
+    display: flex; /* show input and button inline */
+}
+
+/* Small spacing wrapper for search elements */
+.search-element{
+    margin:4px /* small gap around search controls */
+}
+
+/* Container for product cards */
+#product-section{
+    width: 100%; /* full width */
+    border-radius: 5px; /* subtle rounded corners */
+    display: flex; /* use flexbox to layout product cards */
+    flex-wrap: wrap; /* allow wrapping to multiple rows */
+    justify-content: space-evenly; /* distribute cards evenly */
+    align-self: center; /* center the section within parent */
+    align-content: space-between; /* adjust wrapped rows spacing */
+}
+
+/* Individual product card */
+.product{
+    margin: 10px; /* outer spacing between cards */
+    /* border: 2px solid rgb(255, 202, 155); warm border color */
+    /* background-color: rgb(255, 202, 155); card background color */
+    display: flex; /* flex layout inside card */
+    flex-direction: column; /* stack image, title, price vertically */
+    height:400px; /* fixed card height */
+    width:300px; /* fixed card width */
+    border-radius: 5px; /* rounded card corners */
+    box-shadow: 2px 2px 2px grey; /* subtle drop shadow */
+    border: 2px solid #f2c6a0;              /* softer peach border */
+    background-color: #fde3c8;              /* lighter warm card */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* smoother shadow */
+    transition: 
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background-color 0.35s ease;
+}
+
+.product:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.18);
+    background-color: #ffe8d4;
+}
+
+/* Product image inside card */
+.product-img{
+    align-self: center; /* center image horizontally */
+    border-radius: 5px; /* round the image corners */
+    margin-bottom: 10px; /* spacing below image */
+    transition: transform 0.35s ease;
+
+}
+
+.product:hover .product-img{
+    transform: scale(1.05);
+}
+
+
+/* Product title styling */
+.product-title{
+    text-align: center; /* center the title text */
+    padding: 4px; /* small internal spacing */
+    margin: 0px; /* remove default margin */
+}
+
+.product button{
+    background-color: #1f2937; /* dark neutral */
+    color: #ffffff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.product button:hover{
+    background-color: #000000;
+}
+
+
+/* Product price styling */
+.product-price{
+    text-align: center; /* center the price */
+    margin: 0px; /* remove default margin */
+}
+
+/* History view styles */
+.btn{ display:inline-block; padding:8px 12px; background: #4f46e5; color:#fff; border-radius:8px; text-decoration:none; font-weight:600; }
+.history-container{ padding:8px; min-height:80px; }
+.history-item{ display:flex; justify-content:space-between; align-items:center; padding:8px; border-radius:6px; cursor:pointer; border-bottom:1px solid #eee; }
+.history-item:hover{ background:rgba(79,70,229,0.03); }
+.history-item .term{ font-size:14px; }
+.history-item .time{ color:#6b7280; font-size:12px; }
+.clear-btn{ background:transparent; border:1px solid #e5e7eb; padding:6px 10px; border-radius:6px; cursor:pointer; }
+
+/* Viewed product item tweaks */
+.viewed-item img{ width:56px; height:56px; object-fit:cover; border-radius:6px; }
+.viewed-item .term{ max-width:420px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+
+/* Cart icon and badge */
+.cart-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:green;
+  border:none;
+  padding:8px 10px;
+  border-radius:10px;
+  color:#fff;
+  cursor:pointer;
+}
+.cart-btn svg{ display:block }
+.cart-count{
+  background: grey;
+  color:white;
+  font-weight:700;
+  padding:2px 6px;
+  border-radius:999px;
+  font-size:12px;
+  min-width:22px;
+  text-align:center;
+}
+
+/* Header: sticky top, inner centered heading, cart pinned to right */
+.page-header{
+  position:sticky;
+  top:0;
+  width:100%;
+  background: #ffffffcc; /* slight translucency to blend */
+  backdrop-filter: blur(4px);
+  z-index:40;
+  box-shadow: 0 1px 6px rgba(2,6,23,0.06);
+}
+.header-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:10px 12px;
+  display:flex;
+  justify-content:center; /* center the heading */
+  align-items:center;
+  position:relative; /* for absolute cart positioning */
+}
+.header-inner .heading{ margin:0; }
+
+/* pin cart to right edge of the inner container */
+.header-inner .cart-btn{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+/* Center the search form: keep it in the document flow but centered */
+#search-form{
+  max-width:720px;
+  margin:12px auto 18px;
+  display:flex;
+  gap:10px;
+  justify-content:center; /* center input + buttons horizontally */
+  align-items:center;
+  padding:0 12px;
+}
+
+/* Make the input a bit wider and visually centered */
+#search-bar{
+  padding:10px 12px;
+  width:420px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+}
+
+/* Ensure buttons match height and align with input */
+.btn, .search-btn{
+  padding:10px 12px;
+  border-radius:8px;
+}
+
+@media (max-width:520px){
+  #search-bar{ width:220px; }
+  .header-inner .cart-btn{ right:8px; }
+}
